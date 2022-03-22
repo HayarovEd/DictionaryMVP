@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.dictionary.model.data.datasource.WordTranslate
 
 
-class CurrencyAdapter(
+class TranslateAdapter(
     private val list: List<WordTranslate>,
 ) :
     RecyclerView.Adapter<TranslateHolder>() {

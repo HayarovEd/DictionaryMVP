@@ -20,7 +20,9 @@ class TranslateHolder(inflater: LayoutInflater, parent: ViewGroup) :
     fun bind(wordTranslate: WordTranslate) {
         textItem?.text = wordTranslate.text
         wordTranslate.meanings.forEach {
-            translateItem?.text = it.translation.toString() + ", "
+            translateItem?.text = translateItem?.text.toString()+it.translation.textTranslation + ", "
         }
+        //translateItem?.text = wordTranslate.text
+
     }
 }
