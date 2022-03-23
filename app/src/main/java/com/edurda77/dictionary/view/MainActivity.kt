@@ -2,45 +2,35 @@ package com.edurda77.dictionary.view
 
 import TranslateAdapter
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.dictionary.databinding.ActivityMainBinding
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
-import com.edurda77.dictionary.model.datasource.CaseRepo
-import com.edurda77.dictionary.model.datasource.CaseRepoImpl
-import com.edurda77.dictionary.presenter.Presenter
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.kotlin.subscribeBy
-import io.reactivex.rxjava3.schedulers.Schedulers
-import java.util.function.Predicate
+import com.edurda77.dictionary.model.data.WordTranslate
 
 
 class MainActivity : AppCompatActivity(), BaseMainActivity {
     private lateinit var binding: ActivityMainBinding
-    private val currentData: CaseRepo by lazy { app.caseRepoImpl }
+    //private val currentData: CaseRepo by lazy { app.caseRepoImpl }
     private val presenter = App.instance.presenterMainActivity
-    private val presenter2 = Presenter(CaseRepoImpl(),this)
+    //private val presenter2 = Presenter(CaseRepoImpl(),this)
     private var dataInput = emptyList<WordTranslate>().toMutableList()
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        presenter2.attachView(this)
+        presenter.attachView(this)
         binding.search.setOnClickListener {
             val searchWord = binding.enter
-            presenter2.getData(searchWord.text.toString())
+            presenter.getData(searchWord.text.toString())
         }
         /*val searchWord = binding.enter
-        val searchButtom = binding.search
-        searchButtom.setOnClickListener {
+        val searchBottom = binding.search
+        searchBottom.setOnClickListener {
             dataInput.clear()
             val word = searchWord.text.toString()
-            val loadnigData = currentData.getData(word)
-            loadnigData.subscribeOn(Schedulers.newThread())
+            val loadingData = currentData.getData(word)
+            loadingData.subscribeOn(Schedulers.newThread())
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { it }
@@ -63,10 +53,6 @@ class MainActivity : AppCompatActivity(), BaseMainActivity {
 
     private fun setOotRecycledView() {
 
-
-    }
-
-    override fun loadData(dataInputCurrent:MutableList<WordTranslate>) {
         val recyclerView: RecyclerView = binding.recycledView
         recyclerView.layoutManager = LinearLayoutManager(
             this,
@@ -78,8 +64,21 @@ class MainActivity : AppCompatActivity(), BaseMainActivity {
         adapter.notifyDataSetChanged()
     }
 
+    override fun loadData(wordTranslate: List<WordTranslate>) {
+        dataInput.clear()
+        Thread {
+            wordTranslate.forEach {
+                dataInput.add(it)
+            }
+            runOnUiThread {
+                setOotRecycledView()
+            }
+        }.start()
+
+    }
+
     override fun onStop() {
-        presenter2.detachView(this)
+        presenter.detachView(this)
         super.onStop()
     }
 }

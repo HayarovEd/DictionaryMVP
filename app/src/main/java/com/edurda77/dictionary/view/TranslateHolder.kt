@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.dictionary.R
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
+import com.edurda77.dictionary.model.data.WordTranslate
 
 class TranslateHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.item_translate, parent, false)) {

@@ -1,5 +1,6 @@
-package com.edurda77.dictionary.model.data.datasource
+package com.edurda77.dictionary.model.data
 
+import com.edurda77.dictionary.model.data.Meanings
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 

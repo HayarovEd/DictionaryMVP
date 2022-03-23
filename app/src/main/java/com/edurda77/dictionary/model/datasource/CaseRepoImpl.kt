@@ -1,6 +1,6 @@
 package com.edurda77.dictionary.model.datasource
 
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
+import com.edurda77.dictionary.model.data.WordTranslate
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.core.Observable
 

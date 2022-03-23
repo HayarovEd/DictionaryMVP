@@ -1,7 +1,7 @@
 package com.edurda77.dictionary.view
 
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
+import com.edurda77.dictionary.model.data.WordTranslate
 
 interface BaseMainActivity {
-    fun loadData (dataInputCurrent:MutableList<WordTranslate>)
+    fun loadData (wordTranslate: List<WordTranslate>)
 }

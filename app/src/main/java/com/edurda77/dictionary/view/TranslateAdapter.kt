@@ -1,8 +1,7 @@
-import TranslateHolder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
+import com.edurda77.dictionary.model.data.WordTranslate
 
 
 class TranslateAdapter(

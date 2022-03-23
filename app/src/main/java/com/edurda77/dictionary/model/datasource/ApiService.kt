@@ -1,6 +1,6 @@
 package com.edurda77.dictionary.model.datasource
 
-import com.edurda77.dictionary.model.data.datasource.WordTranslate
+import com.edurda77.dictionary.model.data.WordTranslate
 import io.reactivex.rxjava3.core.Observable
 
 import retrofit2.http.GET
