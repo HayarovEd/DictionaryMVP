@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8sp"
+    android:layout_margin="@dimen/half_margin"
     android:background="@color/purple_200"
     android:orientation="vertical"
     tools:context=".view.MainActivity">
@@ -13,8 +13,8 @@
         android:id="@+id/enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
-        android:background="#20E628"
+        android:layout_margin="@dimen/half_margin"
+        android:background="@color/background_edit_text"
         android:gravity="center"
         android:hint="@string/enter_word"
         android:textSize="20sp" />
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8sp"
+        android:layout_margin="@dimen/half_margin"
         android:background="@color/teal_200"
         android:text="@string/search" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/recycled_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8sp"
+        android:layout_margin="@dimen/half_margin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

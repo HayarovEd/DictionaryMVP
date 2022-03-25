@@ -1,4 +1,4 @@
-package com.edurda77.dictionary.view
+package com.edurda77.dictionary
 
 import android.app.Application
 import com.edurda77.dictionary.model.datasource.CaseRepoImpl
@@ -10,11 +10,11 @@ class App : Application() {
     lateinit var presenterMainActivity: Presenter
     override fun onCreate() {
         super.onCreate()
-        instance=this
+        instance =this
         presenterMainActivity = Presenter(CaseRepoImpl(), this)
     }
     companion object {
-        lateinit var instance:App
+        lateinit var instance: App
         private set
     }
 }

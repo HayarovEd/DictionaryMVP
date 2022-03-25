@@ -1,12 +1,11 @@
 package com.edurda77.dictionary.model.data
 
-import com.edurda77.dictionary.model.data.Meanings
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class WordTranslate(
-    @SerializedName("text")
+    @SerializedName(TEXT)
     val text: String,
-    @SerializedName("meanings")
+    @SerializedName(MEANINGS)
     val meanings:List<Meanings>
 ):Serializable

@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Meanings(
-    @SerializedName("translation")
+    @SerializedName(TRANSLATION)
     val translation: Translation,
-    @SerializedName("imageUrl")
+    @SerializedName(IMAGE_URL)
     val imageUrl: String
 ) : Serializable

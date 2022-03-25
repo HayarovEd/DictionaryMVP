@@ -2,4 +2,6 @@
     <string name="app_name">Dictionary</string>
     <string name="enter_word">введите слово</string>
     <string name="search">Поиск</string>
+    <string name="error">Ошибка</string>
+    <string name="all_loading">все загружено</string>
 </resources>

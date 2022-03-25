@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.dictionary.R
+import com.edurda77.dictionary.model.data.SET_TEXT
 import com.edurda77.dictionary.model.data.WordTranslate
 
 class TranslateHolder(inflater: LayoutInflater, parent: ViewGroup) :
@@ -16,7 +17,7 @@ class TranslateHolder(inflater: LayoutInflater, parent: ViewGroup) :
         translateItem = itemView.findViewById(R.id.translate_item)
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint(SET_TEXT)
     fun bind(wordTranslate: WordTranslate) {
         textItem?.text = wordTranslate.text
         wordTranslate.meanings.forEach {
