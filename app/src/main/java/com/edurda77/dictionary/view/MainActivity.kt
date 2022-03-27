@@ -11,20 +11,28 @@ import com.edurda77.dictionary.databinding.ActivityMainBinding
 import com.edurda77.dictionary.model.data.WordTranslate
 import com.edurda77.dictionary.viewmodel.MainActivityViewModel
 import com.edurda77.dictionary.viewmodel.MainActivityViewModelContract
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() /*, BaseMainActivity*/ {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainActivityViewModelContract.ViewModel by lazy {
+    @Inject
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModel: MainActivityViewModel
+    /*private val viewModel: MainActivityViewModelContract.ViewModel by lazy {
         ViewModelProvider(this)[MainActivityViewModel::class.java]
-    }
+    }*/
     //private val presenter = App.instance.presenterMainActivity
     //private var dataInput = emptyList<WordTranslate>().toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
+        AndroidInjection.inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        viewModel = viewModelFactory.create(MainActivityViewModel::class.java)
         //presenter.attachView(this)
         viewModel.liveData.observe(this) {
             setOotRecycledView(it)

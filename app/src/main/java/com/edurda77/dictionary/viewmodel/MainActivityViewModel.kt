@@ -11,9 +11,11 @@ import com.edurda77.dictionary.model.datasource.CaseRepoImpl
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 
-class MainActivityViewModel : MainActivityViewModelContract.ViewModel() {
-    private val caseRepoImpl = CaseRepoImpl()
+class MainActivityViewModel @Inject constructor(private val caseRepoImpl: CaseRepoImpl) :
+    MainActivityViewModelContract.ViewModel() {
+    //private val caseRepoImpl = CaseRepoImpl()
     override val liveData: MutableLiveData<List<WordTranslate>> =
         MutableLiveData<List<WordTranslate>>()
 

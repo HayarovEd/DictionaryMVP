@@ -2,8 +2,6 @@ package com.edurda77.dictionary
 
 import android.app.Application
 import com.edurda77.dictionary.di.DaggerAppComponent
-import com.edurda77.dictionary.model.datasource.CaseRepoImpl
-import com.edurda77.dictionary.presenter.Presenter
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
