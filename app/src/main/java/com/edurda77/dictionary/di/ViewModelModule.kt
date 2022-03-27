@@ -8,7 +8,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-@Module
+@Module(includes = [RetrofitModule::class])
+
 internal abstract class ViewModelModule {
 
     @Binds
