@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 
 class CaseRepoImpl @Inject constructor(private val api: ApiService) : CaseRepo {
-    /*private var retrofit: Retrofit = Retrofit.Builder()
+    /*without DI - private var retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

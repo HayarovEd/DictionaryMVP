@@ -15,16 +15,16 @@ import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity() /*, BaseMainActivity*/ {
+class MainActivity : AppCompatActivity() /*, BaseMainActivity without DI*/ {
     private lateinit var binding: ActivityMainBinding
     @Inject
     internal lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var viewModel: MainActivityViewModel
     /*private val viewModel: MainActivityViewModelContract.ViewModel by lazy {
         ViewModelProvider(this)[MainActivityViewModel::class.java]
-    }*/
-    //private val presenter = App.instance.presenterMainActivity
-    //private var dataInput = emptyList<WordTranslate>().toMutableList()
+    } without DI */
+    //private val presenter = App.instance.presenterMainActivity MVP
+    //private var dataInput = emptyList<WordTranslate>().toMutableList() MVP
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,14 +33,14 @@ class MainActivity : AppCompatActivity() /*, BaseMainActivity*/ {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         viewModel = viewModelFactory.create(MainActivityViewModel::class.java)
-        //presenter.attachView(this)
+        //presenter.attachView(this) MVP
         viewModel.liveData.observe(this) {
             setOotRecycledView(it)
         }
         binding.search.setOnClickListener {
             val searchWord = binding.enter.text.toString()
-            viewModel.getData(searchWord, this)
-            //presenter.getData(searchWord.text.toString())
+            viewModel.getData(searchWord)
+            //presenter.getData(searchWord.text.toString()) MVP
         }
     }
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() /*, BaseMainActivity*/ {
         recyclerView.adapter = TranslateAdapter(list)
     }
 
-    /*override fun loadData(wordTranslate: List<WordTranslate>) {
+    /*MVP - override fun loadData(wordTranslate: List<WordTranslate>) {
         dataInput.clear()
         Thread {
             wordTranslate.forEach {
