@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.di
 
 import com.edurda77.dictionary.view.MainActivity
@@ -9,3 +10,4 @@ abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun contributeMainActivity(): MainActivity
 }
+*/

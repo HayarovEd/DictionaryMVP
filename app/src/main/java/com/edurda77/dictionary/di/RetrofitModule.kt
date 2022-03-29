@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.di
 
 import com.edurda77.dictionary.model.data.BASE_URL
@@ -23,4 +24,4 @@ class RetrofitModule {
     @Provides
     @Singleton
     internal fun getApi(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-}
+}*/

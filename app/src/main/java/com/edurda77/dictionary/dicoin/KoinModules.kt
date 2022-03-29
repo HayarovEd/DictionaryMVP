@@ -20,12 +20,12 @@ val appModule = module {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
-    single<ApiService> (named("B")){
+    single<ApiService> (named("api")){
         get<Retrofit>().create(ApiService::class.java)
     }
-    single<CaseRepo>(named("A")) {
-        CaseRepoImpl(get((named("B"))))
+    single<CaseRepo> (named("repo")) {
+        CaseRepoImpl(get((named("api"))))
     }
 
-    viewModel { MainActivityViewModel(caseRepoImpl = get(named("A"))) }
+    viewModel { MainActivityViewModel(caseRepoImpl = get((named("repo")))) }
 }

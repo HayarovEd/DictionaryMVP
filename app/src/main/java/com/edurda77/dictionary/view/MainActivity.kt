@@ -67,4 +67,5 @@ class MainActivity : AppCompatActivity() /*, BaseMainActivity without DI*/ {
         presenter.detachView(this)
         super.onStop()
     }*/
+
 }

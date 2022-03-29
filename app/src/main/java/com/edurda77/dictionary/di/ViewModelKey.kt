@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.di
 
 import androidx.lifecycle.ViewModel
@@ -10,4 +11,4 @@ import kotlin.reflect.KClass
     AnnotationTarget.PROPERTY_SETTER
 )
 @MapKey
-annotation class ViewModelKey(val value: KClass<out ViewModel>)
+annotation class ViewModelKey(val value: KClass<out ViewModel>)*/
