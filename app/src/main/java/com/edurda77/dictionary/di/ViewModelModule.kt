@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.di
 
 import androidx.lifecycle.ViewModel
@@ -21,3 +22,4 @@ internal abstract class ViewModelModule {
     @ViewModelKey(MainActivityViewModel::class)
     protected abstract fun mainViewModel(mainViewModel: MainActivityViewModel): ViewModel
 }
+*/

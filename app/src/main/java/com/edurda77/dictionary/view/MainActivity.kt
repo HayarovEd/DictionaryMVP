@@ -3,23 +3,20 @@ package com.edurda77.dictionary.view
 import TranslateAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.edurda77.dictionary.App
 import com.edurda77.dictionary.databinding.ActivityMainBinding
 import com.edurda77.dictionary.model.data.WordTranslate
 import com.edurda77.dictionary.viewmodel.MainActivityViewModel
-import com.edurda77.dictionary.viewmodel.MainActivityViewModelContract
-import dagger.android.AndroidInjection
-import javax.inject.Inject
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() /*, BaseMainActivity without DI*/ {
     private lateinit var binding: ActivityMainBinding
-    @Inject
-    internal lateinit var viewModelFactory: ViewModelProvider.Factory
-    lateinit var viewModel: MainActivityViewModel
+
+    private val viewModel: MainActivityViewModel by viewModel()
+    //@Inject
+    //Dagger - internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    //Dagger - lateinit var viewModel: MainActivityViewModel
     /*private val viewModel: MainActivityViewModelContract.ViewModel by lazy {
         ViewModelProvider(this)[MainActivityViewModel::class.java]
     } without DI */
@@ -28,11 +25,11 @@ class MainActivity : AppCompatActivity() /*, BaseMainActivity without DI*/ {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
-        AndroidInjection.inject(this)
+        //Dagger - AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        viewModel = viewModelFactory.create(MainActivityViewModel::class.java)
+        //Dagger - viewModel = viewModelFactory.create(MainActivityViewModel::class.java)
         //presenter.attachView(this) MVP
         viewModel.liveData.observe(this) {
             setOotRecycledView(it)

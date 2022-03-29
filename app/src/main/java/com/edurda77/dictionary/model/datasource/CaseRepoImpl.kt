@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 
-class CaseRepoImpl @Inject constructor(private val api: ApiService) : CaseRepo {
+class CaseRepoImpl /*Dagger - @Inject constructor*/(private val api: ApiService) : CaseRepo {
     /*without DI - private var retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())

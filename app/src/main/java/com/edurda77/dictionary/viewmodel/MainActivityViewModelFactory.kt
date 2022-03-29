@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.viewmodel
 
 import androidx.lifecycle.ViewModel
@@ -27,4 +28,4 @@ constructor(
     }
 
 
-}
+}*/

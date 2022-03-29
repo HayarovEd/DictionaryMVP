@@ -7,6 +7,7 @@ import com.edurda77.dictionary.model.datasource.CaseRepoImpl
 import com.edurda77.dictionary.viewmodel.MainActivityViewModel
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -19,12 +20,12 @@ val appModule = module {
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }
-    single<ApiService> {
+    single<ApiService> (named("B")){
         get<Retrofit>().create(ApiService::class.java)
     }
-    single<CaseRepo> {
-        CaseRepoImpl(get())
+    single<CaseRepo>(named("A")) {
+        CaseRepoImpl(get((named("B"))))
     }
 
-    viewModel { MainActivityViewModel(get()) }
+    viewModel { MainActivityViewModel(caseRepoImpl = get(named("A"))) }
 }

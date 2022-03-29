@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.di
 
 import android.app.Application
@@ -27,3 +28,4 @@ interface AppComponent {
 
     fun inject(app: App)
 }
+*/
