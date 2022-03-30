@@ -1,7 +1,7 @@
 package com.edurda77.dictionary
 
 import android.app.Application
-import com.edurda77.dictionary.dicoin.appModule
+import com.edurda77.dictionary.dicoin.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -10,7 +10,7 @@ class App : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@App)
-            modules(appModule)
+            modules(listOf(viewModelModule, apiModule, netModule, repositoryModule))
         }
     }
 
