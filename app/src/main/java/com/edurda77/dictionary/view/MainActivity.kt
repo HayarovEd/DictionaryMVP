@@ -31,13 +31,14 @@ class MainActivity : AppCompatActivity() /*, BaseMainActivity without DI*/ {
         setContentView(binding.root)
         //Dagger - viewModel = viewModelFactory.create(MainActivityViewModel::class.java)
         //presenter.attachView(this) MVP
-        viewModel.liveData.observe(this) {
-            setOotRecycledView(it)
-        }
+
         binding.search.setOnClickListener {
             val searchWord = binding.enter.text.toString()
             viewModel.getData(searchWord)
             //presenter.getData(searchWord.text.toString()) MVP
+        }
+        viewModel.liveData.observe(this) {
+            setOotRecycledView(it)
         }
     }
 

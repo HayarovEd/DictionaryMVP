@@ -3,21 +3,29 @@ package com.edurda77.dictionary.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.edurda77.dictionary.model.data.WordTranslate
 import com.edurda77.dictionary.model.datasource.CaseRepoImpl
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.observers.DisposableObserver
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivityViewModel /*Dagger - @Inject constructor*/(private val caseRepoImpl: CaseRepoImpl) :
     MainActivityViewModelContract.ViewModel() {
     //private val caseRepoImpl = CaseRepoImpl() without DI
-    override val liveData: MutableLiveData<List<WordTranslate>> =
+    val liveData: MutableLiveData<List<WordTranslate>> =
         MutableLiveData<List<WordTranslate>>()
 
+    override fun handleError(error: Throwable) {
+        error.message
+    }
+
     override fun getData(searchWord: String) {
-        val loadingData = caseRepoImpl.getData(searchWord)
-        loadingData.subscribeOn(Schedulers.io())
+        //val loadingData = caseRepoImpl.getData(searchWord)
+        viewModelCoroutineScope.launch {
+            startLoad(searchWord)
+        }
+        /*-> RxJava loadingData.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(getObserver())
+            .subscribeWith(getObserver())*/
     }
 
     private fun getObserver(): DisposableObserver<List<WordTranslate>> {
@@ -38,4 +46,12 @@ class MainActivityViewModel /*Dagger - @Inject constructor*/(private val caseRep
 
         }
     }
+
+    private suspend fun startLoad(word: String) =
+        withContext(Dispatchers.IO) {
+            liveData.postValue(
+                caseRepoImpl.getData(word)
+            )
+
+        }
 }

@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.presenter
 
 import android.content.Context
@@ -47,4 +48,4 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Con
         }
     }
 
-}
+}*/
