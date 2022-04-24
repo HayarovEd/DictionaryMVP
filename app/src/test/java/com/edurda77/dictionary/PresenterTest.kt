@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations
 class PresenterTest {
 
     private lateinit var presenter: Presenter
+
     @Mock
     private lateinit var caseRepoImpl: CaseRepoImpl
     @Mock
@@ -36,6 +37,11 @@ class PresenterTest {
         //presenter.getData(searchQuery)
         verify(caseRepoImpl, times(1)).getData(searchQuery)
     }
-
+    @Test
+    fun handleGitHubError_Test() {
+        val sampleList: List<WordTranslate> = listOf()
+        presenter.attachView(activity)
+        verify(activity, times(1)).loadData(sampleList)
+    }
 
 }
