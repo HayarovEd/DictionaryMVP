@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class Presenter(private val caseRepoImpl: CaseRepoImpl, /*private val context: Context*/) :
+class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Context) :
     BasePresenter {
     private var activity: BaseMainActivity? = null
 
@@ -26,9 +26,9 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, /*private val context: C
 
     override fun getData(searchWord: String) {
         val loadingData = caseRepoImpl.getData(searchWord)
-        loadingData.subscribeOn(Schedulers.io())
+       /* loadingData.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(getObserver())
+            .subscribeWith(getObserver())*/
 
     }
 
@@ -39,13 +39,13 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, /*private val context: C
             }
 
             override fun onError(e: Throwable) {
-                print("${R.string.error} $e")
-                //Toast.makeText(context, "${R.string.error} $e", Toast.LENGTH_SHORT).show()
+                //print("${R.string.error} $e")
+                Toast.makeText(context, "${R.string.error} $e", Toast.LENGTH_SHORT).show()
             }
 
             override fun onComplete() {
-                print(R.string.all_loading)
-                //Toast.makeText(context, R.string.all_loading, Toast.LENGTH_SHORT).show()
+                //print(R.string.all_loading)
+                Toast.makeText(context, R.string.all_loading, Toast.LENGTH_SHORT).show()
             }
 
         }

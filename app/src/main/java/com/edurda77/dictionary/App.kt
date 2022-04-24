@@ -33,7 +33,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        presenterMainActivity = Presenter(CaseRepoImpl())
+        presenterMainActivity = Presenter(CaseRepoImpl(), this)
     }
 
     companion object {
