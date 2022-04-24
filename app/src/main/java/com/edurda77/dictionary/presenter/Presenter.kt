@@ -1,6 +1,7 @@
 
 package com.edurda77.dictionary.presenter
 
+import android.app.Activity
 import android.content.Context
 import android.widget.Toast
 import com.edurda77.dictionary.R
@@ -11,7 +12,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Context) :
+class Presenter(private val caseRepoImpl: CaseRepoImpl, /*private val context: Context*/) :
     BasePresenter {
     private var activity: BaseMainActivity? = null
 
@@ -38,11 +39,13 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Con
             }
 
             override fun onError(e: Throwable) {
-                Toast.makeText(context, "${R.string.error} $e", Toast.LENGTH_SHORT).show()
+                print("${R.string.error} $e")
+                //Toast.makeText(context, "${R.string.error} $e", Toast.LENGTH_SHORT).show()
             }
 
             override fun onComplete() {
-                Toast.makeText(context, R.string.all_loading, Toast.LENGTH_SHORT).show()
+                print(R.string.all_loading)
+                //Toast.makeText(context, R.string.all_loading, Toast.LENGTH_SHORT).show()
             }
 
         }
