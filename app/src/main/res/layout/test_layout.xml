@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/pasha_2022"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/margin_end"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/block_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="text_1,text_2, text_3, image_2"/>
+
+        <TextView
+            android:id="@+id/text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Пасха"
+            android:textSize="32sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/image_2"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/margin_start"
+            app:layout_constraintTop_toBottomOf="@+id/image_1"
+            app:layout_goneMarginEnd="16dp" />
+
+        <ImageView
+            android:id="@+id/image_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_dictionary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_1" />
+
+        <TextView
+            android:id="@+id/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Дата"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_1" />
+
+        <TextView
+            android:id="@+id/text_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 апреля 2022 года"
+            android:textSize="16sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_2"
+            app:layout_constraintEnd_toStartOf="@id/image_2"
+            app:layout_constraintStart_toEndOf="@id/text_2" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="image_1,image_2,text_1,text_2,text_3" />
+
+        <TextView
+            android:id="@+id/text_4"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Описание"
+            android:textSize="16sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_1" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/helper_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:constraint_referenced_ids="actor_1,actor_2, actor_3, actor_4, actor_5"
+            app:flow_firstHorizontalBias="0"
+            app:flow_horizontalGap="10dp"
+            app:flow_horizontalStyle="spread"
+            app:flow_verticalGap="10dp"
+            app:flow_verticalStyle="spread"
+            app:flow_wrapMode="aligned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_4" />
+
+        <TextView
+            android:id="@+id/actor_1"
+            style="@style/Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="актер-1"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/actor_2"
+            style="@style/Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="актер-2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/actor_3"
+            style="@style/Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="актер-3"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/actor_4"
+            style="@style/Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="актер-4"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/actor_5"
+            style="@style/Actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="актер-5"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Кнопка-1"
+            app:layout_constraintEnd_toStartOf="@id/button_2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/helper_1"
+            app:layout_goneMarginEnd="8dp" />
+
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Кнопка-2"
+            app:layout_constraintEnd_toStartOf="@id/button_3"
+            app:layout_constraintStart_toEndOf="@id/button_1"
+            app:layout_constraintTop_toBottomOf="@id/helper_1"
+            app:layout_goneMarginEnd="8dp" />
+
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Кнопка-3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_2"
+            app:layout_constraintTop_toBottomOf="@id/helper_1"
+            app:layout_goneMarginEnd="8dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
