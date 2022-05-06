@@ -1,3 +1,4 @@
+/*
 package com.edurda77.dictionary.dicoin
 
 import com.edurda77.dictionary.model.data.BASE_URL
@@ -37,4 +38,4 @@ val repositoryModule = module {
         return CaseRepoImpl(api)
     }
     single { provideUserRepository(get()) }
-}
+}*/

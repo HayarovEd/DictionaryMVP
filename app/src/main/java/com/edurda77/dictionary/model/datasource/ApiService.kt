@@ -11,6 +11,6 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET(WORD_SEARCH)
-    fun search(@Query(SEARCH) wordToSearch: String): Deferred<List<WordTranslate>>//coroutines
-    //fun search(@Query(SEARCH) wordToSearch: String): Observable<List<WordTranslate>>
+    //fun search(@Query(SEARCH) wordToSearch: String): Deferred<List<WordTranslate>>//coroutines
+    fun search(@Query(SEARCH) wordToSearch: String): Observable<List<WordTranslate>>
 }

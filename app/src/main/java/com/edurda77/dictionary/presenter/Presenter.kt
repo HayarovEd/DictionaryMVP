@@ -1,6 +1,7 @@
-/*
+
 package com.edurda77.dictionary.presenter
 
+import android.app.Activity
 import android.content.Context
 import android.widget.Toast
 import com.edurda77.dictionary.R
@@ -25,9 +26,9 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Con
 
     override fun getData(searchWord: String) {
         val loadingData = caseRepoImpl.getData(searchWord)
-        loadingData.subscribeOn(Schedulers.io())
+       /* loadingData.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(getObserver())
+            .subscribeWith(getObserver())*/
 
     }
 
@@ -38,14 +39,16 @@ class Presenter(private val caseRepoImpl: CaseRepoImpl, private val context: Con
             }
 
             override fun onError(e: Throwable) {
+                //print("${R.string.error} $e")
                 Toast.makeText(context, "${R.string.error} $e", Toast.LENGTH_SHORT).show()
             }
 
             override fun onComplete() {
+                //print(R.string.all_loading)
                 Toast.makeText(context, R.string.all_loading, Toast.LENGTH_SHORT).show()
             }
 
         }
     }
 
-}*/
+}

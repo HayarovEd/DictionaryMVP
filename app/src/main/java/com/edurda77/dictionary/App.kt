@@ -1,11 +1,10 @@
 package com.edurda77.dictionary
 
 import android.app.Application
-import com.edurda77.dictionary.dicoin.*
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import com.edurda77.dictionary.model.datasource.CaseRepoImpl
+import com.edurda77.dictionary.presenter.Presenter
 
-class App : Application() {
+/*class App : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
@@ -14,7 +13,7 @@ class App : Application() {
         }
     }
 
-}
+}*/
 /* Dagger - class App : Application(), HasAndroidInjector{
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
@@ -29,7 +28,7 @@ class App : Application() {
             .inject(this)
     }
 } */
-/* MVP - class App : Application() {
+class App : Application() {
     lateinit var presenterMainActivity: Presenter
     override fun onCreate() {
         super.onCreate()
@@ -41,4 +40,4 @@ class App : Application() {
         lateinit var instance: App
             private set
     }
-}*/
+}

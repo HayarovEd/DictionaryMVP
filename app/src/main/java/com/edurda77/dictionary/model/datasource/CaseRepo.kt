@@ -6,6 +6,6 @@ import kotlinx.coroutines.Deferred
 
 
 interface CaseRepo {
-    //fun getData (searchWord:String): Observable<List<WordTranslate>>
-    suspend fun getData (searchWord:String): List<WordTranslate>
+    fun getData (searchWord:String): Observable<List<WordTranslate>>
+    //suspend fun getData (searchWord:String): List<WordTranslate>
 }

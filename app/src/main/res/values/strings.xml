@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Переводчик</string>
+    <string name="app_name">Переводчик Презентер</string>
     <string name="enter_word">введите слово</string>
     <string name="search">Поиск</string>
     <string name="error">Ошибка</string>
